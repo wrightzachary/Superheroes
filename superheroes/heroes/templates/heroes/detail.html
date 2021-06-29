@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Superhero</title>
+</head>
+<body>
+    <h1>Superheroes</h1>
+        <ul>
+              {% if specific_superhero %}
+        <h1>{{specific_superhero.name}} Details</h1>
+        <li><h2>{{specific_superhero.alter_ego}}</h2></li>
+        <li><h2>{{specific_superhero.primary_superhero_ability}}</h2></li>
+        <li><h2>{{specific_superhero.secondary_superhero_ability}}</h2></li>
+        <li><h2>{{specific_superhero.catchphrase}}</h2></li>
+
+        {% endif %}
+        <a href="{% url 'heroes:index' %}">Back to Superheroes</a>
+        </ul>
+</body>
+</html>
