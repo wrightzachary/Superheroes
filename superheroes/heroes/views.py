@@ -35,8 +35,8 @@ def create(request):
         return render(request, 'heroes/create.html')
 
 
-def change(request, hero_id):
-    specific_superhero = Heroes.objects.filter(pk=hero_id)
+def change(request):
+    specific_superhero = Heroes.objects.filter()
     context = {
         'specific_superhero': specific_superhero
     }
@@ -46,8 +46,8 @@ def change(request, hero_id):
         change_primary_superhero_ability = request.POST.get('change_primary_superhero_ability')
         change_secondary_superhero_ability = request.POST.get('change_secondary_superhero_ability')
         change_catchphrase = request.POST.get('change_catchphrase')
-        hero_id = Heroes(name=change_name, alter_ego=change_alter_ego, primary_superhero_ability=change_primary_superhero_ability,secondary_superhero_ability=change_secondary_superhero_ability, catchphrase=change_catchphrase)
-        hero_id.save()
+        changed_hero = Heroes(name=change_name, alter_ego=change_alter_ego, primary_superhero_ability=change_primary_superhero_ability,secondary_superhero_ability=change_secondary_superhero_ability, catchphrase=change_catchphrase)
+        changed_hero.save()
         return HttpResponseRedirect(reverse('heroes:detail', context))
     else:
         return render(request, 'heroes/change.html', context)

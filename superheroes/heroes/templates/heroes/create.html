@@ -9,7 +9,8 @@
     <title>Create Superhero</title>
 </head>
 <body>
-  <form action="{% url 'heroes:create_new_hero' %}" method="post">
+        <h1 style="text-align:center;">Create Superheroes</h1>
+    <form action="{% url 'heroes:create_new_hero' %}" method="post">
         {% csrf_token %}
         Name:<input type="text" name="name" id="name"><br>
         Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
@@ -17,6 +18,8 @@
         Secondary Superhero ability:<input type="text" name="secondary_superhero_ability" id="secondary_superhero_ability"><br>
         Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br>
         <input type="submit" value="Add new!">
-  </form>
+    </form>
+        <a href="{% url 'heroes:change_hero' %}" >Change a Superhero</a><br>
+        <a href="{% url 'heroes:index' %}">Back to Superheroes</a><br>
 </body>
 </html>

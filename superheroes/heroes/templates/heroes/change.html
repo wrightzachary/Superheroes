@@ -9,7 +9,8 @@
     <title>Change {{hero.name}}</title>
 </head>
 <body>
-  <form action="{% url 'heroes:change_hero' %}" method="post">
+    <h1 style="text-align:center;">Change Superheroes</h1>
+    <form action="{% url 'heroes:change_hero' %}" method="post">
         {% csrf_token %}
         Change Name:<input type="text" name="name" id="name"><br>
         Change Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
@@ -17,6 +18,9 @@
         Change Secondary Superhero Ability:<input type="text" name="secondary_superhero_ability" id="secondary_superhero_ability"><br>
         Change Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br>
         <input type="submit" value="Save Changes!">
-  </form>
+    </form>
+        <a href="{% url 'heroes:create_new_hero' %}" >Create a Superhero</a><br>
+        <a href="{% url 'heroes:index' %}">Back to Superheroes</a><br>
+
 </body>
 </html>
