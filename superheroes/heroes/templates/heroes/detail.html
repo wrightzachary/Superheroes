@@ -6,10 +6,9 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">    <title>Superheroes</title>
-    <title>Superhero</title>
+    <title>Superhero Details</title>
 </head>
 <body>
-    <h1>Superheroes</h1>
         <ul>
               {% if specific_superhero %}
         <h1>{{specific_superhero.name}} Details</h1>
@@ -17,9 +16,11 @@
         <li><h2>{{specific_superhero.primary_superhero_ability}}</h2></li>
         <li><h2>{{specific_superhero.secondary_superhero_ability}}</h2></li>
         <li><h2>{{specific_superhero.catchphrase}}</h2></li>
-
-        {% endif %}
-        <a href="{% url 'heroes:index' %}">Back to Superheroes</a>
         </ul>
+        {% endif %}
+        <a href="{% url 'heroes:index' %}">Back to Superheroes</a><br>
+        <a href="{% url 'heroes:create_new_hero' %}" >Create a Superhero</a><br>
+        <a href="{% url 'heroes:change_hero' %}" >Change a Superhero</a><br>
+        <a href="{% url 'heroes:delete' %}" >Delete a Superhero</a><br>
 </body>
 </html>
