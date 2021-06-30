@@ -8,7 +8,7 @@
     <title>Change {{hero.name}}</title>
 </head>
 <body>
-    <form action="{% url 'heroes:create_new_hero' %}" method="post">
+  <form action="{% url 'heroes:change_hero' %}" method="post">
         {% csrf_token %}
         Change Name:<input type="text" name="name" id="name"><br>
         Change Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
