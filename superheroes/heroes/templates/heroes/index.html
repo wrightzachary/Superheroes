@@ -5,15 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">    <title>Superheroes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">    <title>Superheroes</title>
 </head>
     <body>
-        <h1 style="text-align:center;">Superheroes</h1>
+        <h1 style="text-align:center">Superheroes</h1>
         {% load static %}
-        <img src="{% static '/Desktop/Rhenium/superheroes_full_stack/superheroes/heroes/templates/thor.jpg' %}" alt="Thor">
+        <img src="{% static 'heroes/thor.jpg' %}" alt="Thor">
         <ul>
             {% for hero in all_heroes %}
-            <li><h2> {{hero.name}} </h2>
+            <li style="text-align:center"><h2> {{hero.name}} </h2>
                 <a href="{% url 'heroes:detail' hero.id %}" >See more info</a></li>
             {% endfor %}'
         </ul>

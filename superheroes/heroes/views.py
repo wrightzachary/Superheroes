@@ -35,25 +35,25 @@ def create(request):
         return render(request, 'heroes/create.html')
 
 
-def change(request):
-    specific_superhero = Heroes.objects.filter()
+def change(request, hero_id):
+    specific_superhero = Heroes.objects.get(pk=hero_id)
     context = {
         'specific_superhero': specific_superhero
     }
     if request.method == 'POST':
-        change_name = request.POST.get('change_name')
-        change_alter_ego = request.POST.get('change_alter_ego')
-        change_primary_superhero_ability = request.POST.get('change_primary_superhero_ability')
-        change_secondary_superhero_ability = request.POST.get('change_secondary_superhero_ability')
-        change_catchphrase = request.POST.get('change_catchphrase')
-        changed_hero = Heroes(name=change_name, alter_ego=change_alter_ego, primary_superhero_ability=change_primary_superhero_ability,secondary_superhero_ability=change_secondary_superhero_ability, catchphrase=change_catchphrase)
-        changed_hero.save()
-        return HttpResponseRedirect(reverse('heroes:detail', context))
+        specific_superhero.name = request.POST.get('change_name')
+        specific_superhero.alter_ego = request.POST.get('change_alter_ego')
+        specific_superhero.primary_superhero_ability = request.POST.get('change_primary_superhero_ability')
+        specific_superhero.secondary_superhero_ability = request.POST.get('change_secondary_superhero_ability')
+        specific_superhero.catchphrase = request.POST.get('change_catchphrase')
+        specific_superhero = Heroes(name=specific_superhero.name, alter_ego=specific_superhero.alter_ego, primary_superhero_ability=specific_superhero.primary_superhero_ability,secondary_superhero_ability=specific_superhero.secondary_superhero_ability, catchphrase=specific_superhero.catchphrase)
+        specific_superhero.save()
+        return HttpResponseRedirect(reverse('heroes:index', context))
     else:
         return render(request, 'heroes/change.html', context)
 
 
-def delete(hero_id):
+def delete(request, hero_id):
     delete_superhero = Heroes.objects.get(pk=hero_id)
     Heroes.delete(delete_superhero)
     return HttpResponseRedirect(reverse('heroes:index'))
