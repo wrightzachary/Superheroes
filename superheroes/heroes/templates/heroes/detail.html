@@ -8,15 +8,14 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">    <title>Superheroes</title>
     <title>Superhero Details</title>
 </head>
-<body>
-        <ul>
+<body style="text-align:center">
               {% if specific_superhero %}
         <h1>{{specific_superhero.name}} Details</h1>
-        <li><h2>{{specific_superhero.alter_ego}}</h2></li>
-        <li><h2>{{specific_superhero.primary_superhero_ability}}</h2></li>
-        <li><h2>{{specific_superhero.secondary_superhero_ability}}</h2></li>
-        <li><h2>{{specific_superhero.catchphrase}}</h2></li>
-        </ul>
+        <h2>{{specific_superhero.alter_ego}}</h2>
+        <h2>{{specific_superhero.primary_superhero_ability}}</h2>
+        <h2>{{specific_superhero.secondary_superhero_ability}}</h2>
+        <h2>{{specific_superhero.catchphrase}}</h2>
+
         {% endif %}
         <a href="{% url 'heroes:index' %}">Back to Superheroes</a><br>
 </body>

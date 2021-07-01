@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">    <title>Superheroes</title>
     <title>Change {{hero.name}}</title>
 </head>
-<body>
+<body style="text-align:left">
     <h1 style="text-align:center">Change Superheroes</h1>
     <form action="{% url 'heroes:change_hero' 1 %}" method="post">
         {% csrf_token %}
