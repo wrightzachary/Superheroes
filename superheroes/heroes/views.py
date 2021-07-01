@@ -38,14 +38,14 @@ def create(request):
 def change(request, hero_id):
     specific_superhero = Heroes.objects.get(pk=hero_id)
     context = {
-        'specific_superhero': specific_superhero
+        'change_specific_superhero': specific_superhero
     }
     if request.method == 'POST':
-        specific_superhero.name = request.POST.get('change_name')
-        specific_superhero.alter_ego = request.POST.get('change_alter_ego')
-        specific_superhero.primary_superhero_ability = request.POST.get('change_primary_superhero_ability')
-        specific_superhero.secondary_superhero_ability = request.POST.get('change_secondary_superhero_ability')
-        specific_superhero.catchphrase = request.POST.get('change_catchphrase')
+        specific_superhero.change_name = request.POST.get('change_name')
+        specific_superhero.change_alter_ego = request.POST.get('change_alter_ego')
+        specific_superhero.change_primary_superhero_ability = request.POST.get('change_primary_superhero_ability')
+        specific_superhero.change_secondary_superhero_ability = request.POST.get('change_secondary_superhero_ability')
+        specific_superhero.change_catchphrase = request.POST.get('change_catchphrase')
         specific_superhero = Heroes(name=specific_superhero.name, alter_ego=specific_superhero.alter_ego, primary_superhero_ability=specific_superhero.primary_superhero_ability,secondary_superhero_ability=specific_superhero.secondary_superhero_ability, catchphrase=specific_superhero.catchphrase)
         specific_superhero.save()
         return HttpResponseRedirect(reverse('heroes:index', context))
