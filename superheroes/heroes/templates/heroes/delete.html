@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Superhero</title>
+</head>
+<body>
+  {% if specific_superhero %}
+  <p>Are you sure you want to delete {{specific_superhero.name}}</p>
+        <form action="{% url 'heroes:delete_hero' 3 %}" method="post">
+        <a href="{% url 'heroes:detail' 3 %}" >Cancel</a><br>
+        <input type="submit" name="Delete">
+  {% endif %}
+</form>
+</body>
+</html>

@@ -8,19 +8,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">    <title>Superheroes</title>
     <title>Change {{hero.name}}</title>
 </head>
-<body style="text-align:left">
-    <h1 style="text-align:center">Change Superheroes</h1>
-    <form action="{% url 'heroes:change_hero' 1 %}" method="post">
+<body>
+    <h1>Change Superhero</h1>
+    {% if specific_superhero %}
+    <form action="{% url 'heroes:change_hero' specific_superhero.id %}" method="POST">
         {% csrf_token %}
-        Change Name:<input type="text" name="name" id="name"><br>
-        Change Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
-        Change Primary Superhero Ability:<input type="text" name="primary_superhero_ability" id="primary_superhero_ability"><br>
-        Change Secondary Superhero Ability:<input type="text" name="secondary_superhero_ability" id="secondary_superhero_ability"><br>
-        Change Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br>
-        <input type="submit" value="Save Changes!">
+        {{form.as_p}}
+        <input type="submit">
     </form>
-        <a href="{% url 'heroes:index' %}"></a><br>
-
+    <a href="{% url 'heroes:index' %}"></a><br>
+    {% endif  %}
 
 </body>
 </html>

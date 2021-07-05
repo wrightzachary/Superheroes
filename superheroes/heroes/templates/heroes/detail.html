@@ -9,14 +9,17 @@
     <title>Superhero Details</title>
 </head>
 <body style="text-align:center">
-              {% if specific_superhero %}
+        {% if specific_superhero %}
         <h1>{{specific_superhero.name}} Details</h1>
         <h2>{{specific_superhero.alter_ego}}</h2>
         <h2>{{specific_superhero.primary_superhero_ability}}</h2>
         <h2>{{specific_superhero.secondary_superhero_ability}}</h2>
         <h2>{{specific_superhero.catchphrase}}</h2>
-
-        {% endif %}
+        <a href="{% url 'heroes:change_hero' specific_superhero.id %}">Edit Superhero</a><br>
+        <a href="{% url 'heroes:delete_hero' specific_superhero.id %}">Delete Superhero</a><br>
         <a href="{% url 'heroes:index' %}">Back to Superheroes</a><br>
+        {% endif %}
+
+
 </body>
 </html>
